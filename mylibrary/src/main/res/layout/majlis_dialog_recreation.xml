@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="24dp"
+    android:background="@drawable/majlis_ic_room_dialog_common_bg"
+    android:orientation="vertical">
+
+    <com.common.support.effect.EffectTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="@string/majlis_recreation_label"
+        android:textColor="@color/majlis_FFFFFFFF"
+        android:textSize="@dimen/majlis_text_size_16" />
+
+    <!-- 第一行：gift_score / lucky_number / lucky_draw -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="10dp">
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow_row1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:flow_horizontalStyle="spread_inside"
+            app:flow_wrapMode="none"
+            app:constraint_referenced_ids="item_gift_score,item_lucky_number,item_lucky_draw"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- gift_score item -->
+        <LinearLayout
+            android:id="@+id/item_gift_score"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_gift_score"
+                android:layout_width="89dp"
+                android:layout_height="89dp"
+                android:src="@drawable/majlis_ic_room_game_gift_score" />
+
+            <com.common.support.effect.EffectTextView
+                android:id="@+id/tv_iv_gift_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gift_score"
+                android:textColor="@color/majlis_99FFFFFF"
+                android:textSize="@dimen/majlis_text_size_11" />
+        </LinearLayout>
+
+        <!-- lucky_number item -->
+        <LinearLayout
+            android:id="@+id/item_lucky_number"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="89dp"
+                android:layout_height="89dp">
+
+                <ImageView
+                    android:id="@+id/iv_lucky_number"
+                    android:layout_width="89dp"
+                    android:layout_height="89dp"
+                    tools:src="@drawable/majlis_ic_room_game_lucky_number_99" />
+
+                <ImageView
+                    android:id="@+id/iv_lucky_number_setting"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginEnd="-5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/majlis_ic_room_game_lucky_number_setting" />
+            </FrameLayout>
+
+            <com.common.support.effect.EffectTextView
+                android:id="@+id/tv_lucky_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/majlis_recreation_lucky_number"
+                android:textColor="@color/majlis_99FFFFFF"
+                android:textSize="@dimen/majlis_text_size_11" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.5dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_lucky_number_currency"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/majlis_ic_wallet_diamond"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <com.common.support.effect.EffectTextView
+                    android:id="@+id/tv_lucky_number_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/majlis_FFFFFFFF"
+                    android:textSize="@dimen/majlis_text_size_12"
+                    tools:text="32" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- lucky_draw item -->
+        <LinearLayout
+            android:id="@+id/item_lucky_draw"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_lucky_draw"
+                android:layout_width="89dp"
+                android:layout_height="89dp"
+                android:src="@drawable/majlis_ic_room_game_lucky_draw" />
+
+            <com.common.support.effect.EffectTextView
+                android:id="@+id/tv_lucky_draw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/majlis_recreation_lucky_draw"
+                android:textColor="@color/majlis_99FFFFFF"
+                android:textSize="@dimen/majlis_text_size_11" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 第二行：time_count / stop_watch / (占位) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow_row2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:flow_horizontalStyle="spread_inside"
+            app:flow_wrapMode="none"
+            app:constraint_referenced_ids="item_time_count,item_stop_watch,item_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- time_count item -->
+        <LinearLayout
+            android:id="@+id/item_time_count"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_time_count"
+                android:layout_width="89dp"
+                android:layout_height="89dp"
+                android:src="@drawable/majlis_ic_room_game_count_time" />
+
+            <com.common.support.effect.EffectTextView
+                android:id="@+id/tv_time_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/majlis_13000001"
+                android:textColor="@color/majlis_99FFFFFF"
+                android:textSize="@dimen/majlis_text_size_11" />
+        </LinearLayout>
+
+        <!-- stop_watch item -->
+        <LinearLayout
+            android:id="@+id/item_stop_watch"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_stop_watch"
+                android:layout_width="89dp"
+                android:layout_height="89dp"
+                android:src="@drawable/majlis_ic_room_game_stop_watch" />
+
+            <com.common.support.effect.EffectTextView
+                android:id="@+id/tv_stop_watch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/majlis_13000001"
+                android:textColor="@color/majlis_99FFFFFF"
+                android:textSize="@dimen/majlis_text_size_11" />
+        </LinearLayout>
+
+        <!-- 占位 item，保持三列对齐 -->
+        <Space
+            android:id="@+id/item_space"
+            android:layout_width="89dp"
+            android:layout_height="89dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
